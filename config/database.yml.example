@@ -1,0 +1,23 @@
+default: &default
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  adapter: postgresql
+  encoding: unicode
+  timeout: 5000
+  username: [your_pg_username]
+  password: [your_pg_user_password]
+  host: localhost
+
+
+development:
+  <<: *default
+  database: LANAuth_development
+
+test:
+  <<: *default
+  database: LANAuth_test
+
+production:
+  <<: *default
+  database: LANAuth_production
+  username: csienight
+  password: <%= ENV['LANAuth_DATABASE_PASSWORD'] %>
