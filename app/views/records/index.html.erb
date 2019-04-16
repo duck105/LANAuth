@@ -1,0 +1,32 @@
+<div class="col-md-12">
+  <h2>使用者紀錄</h2>
+  <table class="table table-hover">
+    <div class="group">
+      <!-- <%= link_to("New Record", new_record_path, class: "btn btn-primary  pull-right") %> -->
+    </div>
+    <thead>
+      <tr>
+        <td>#</td>
+        <td>ID</td>
+        <td>Source IP</td>
+        <td>User</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @records.each do |record| %>
+        <tr>
+          <td>#</td>
+          <td><%= record.id %></td>
+          <td><%= record.source_ip %></td>
+          <td><%= record.user.email %></td>
+          <td>
+            <%= link_to "詳細", record_path(record), class: "btn btn-default"%>
+          </td>
+          <td>
+            <%= link_to "刪除", record_path(record), class: "btn btn-default", method: :delete, data: { confirm: "Are you sure?" } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

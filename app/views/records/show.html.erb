@@ -1,0 +1,9 @@
+<div class="col-md-12">
+  <div class="record">
+    <%= link_to("返回", records_path, class: "btn btn-primary pull-right")%>
+  </div>
+  <h3><%= @record.id %></h3>
+  <p>IP: <%= @record.source_ip %></p>
+  <p>User: <%= @record.user.email %></p>
+  <p>Created at: <%= @record.created_at %></p>
+</div>
