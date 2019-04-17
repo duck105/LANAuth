@@ -1,10 +1,32 @@
-<div class="col-md-12">
-  <div class="record">
-    <%= link_to("返回", records_path, class: "btn btn-primary pull-right")%>
+<div class="container records">
+  <%= link_to("返回", records_path, class: "btn btn-warning")%>
+  <br>
+  <br>
+  <h1 class="h2 mb-3"># <%= @record.id %></h1>
+  <br>
+  <div class="table-responsive">
+    <table class="table">
+      <div class="group">
+        <!-- <%= link_to("New Record", new_record_path, class: "btn btn-primary  pull-right") %> -->
+      </div>
+      <tbody>
+        <tr>
+          <td>IP</td>
+          <td><%= @record.source_ip %></td>
+        </tr>
+        <tr>
+          <td>User</td>
+          <td><%= @record.user.email %></td>
+        </tr>
+        <tr>
+          <td>Usage</td>
+          <td><%= @record.get_internet_usage %></td>
+        </tr>
+        <tr>
+          <td>Created at</td>
+          <td><%= @record.created_at.in_time_zone("Taipei") %></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-  <h3><%= @record.id %></h3>
-  <p>IP: <%= @record.source_ip %></p>
-  <p>User: <%= @record.user.email %></p>
-  <p>Usage: <%= @record.get_internet_usage %> bytes</p>
-  <p>Created at: <%= @record.created_at.in_time_zone("Taipei") %></p>
 </div>

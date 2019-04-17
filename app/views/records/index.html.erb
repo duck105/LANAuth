@@ -1,34 +1,39 @@
-<div class="col-md-12">
-  <h2>Records</h2>
-  <table class="table table-hover">
-    <div class="group">
-      <!-- <%= link_to("New Record", new_record_path, class: "btn btn-primary  pull-right") %> -->
-    </div>
-    <thead>
-      <tr>
-        <td>#</td>
-        <td>ID</td>
-        <td>Source IP</td>
-        <td>Usage</td>
-        <td>User</td>
-      </tr>
-    </thead>
-    <tbody>
-      <% @records.each do |record| %>
+<div class="container records">
+  <h1 class="h2 mb-3">Records</h1>
+  <br>
+  <div class="table-responsive">
+    <table class="table">
+      <div class="group">
+        <!-- <%= link_to("New Record", new_record_path, class: "btn btn-primary  pull-right") %> -->
+      </div>
+      <thead>
         <tr>
-          <td>#</td>
-          <td><%= record.id %></td>
-          <td><%= record.source_ip %></td>
-          <td><%= record.get_internet_usage %></td>
-          <td><%= record.user.email %></td>
-          <td>
-            <%= link_to "詳細", record_path(record), class: "btn btn-default"%>
-          </td>
-          <td>
-            <%= link_to "刪除", record_path(record), class: "btn btn-default", method: :delete, data: { confirm: "Are you sure?" } %>
-          </td>
+          <th scope="col">#</th>
+          <th scope="col">ID</th>
+          <th scope="col">Source IP</th>
+          <th scope="col">Usage</th>
+          <th scope="col">User</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <% @records.each do |record| %>
+          <tr>
+            <td>#</td>
+            <td><%= record.id %></td>
+            <td><%= record.source_ip %></td>
+            <td><%= record.get_internet_usage %></td>
+            <td><%= record.user.email %></td>
+            <td>
+              <%= link_to "詳細", record_path(record), class: "btn btn-info"%>
+            </td>
+            <td>
+              <%= link_to "刪除", record_path(record), class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure?" } %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
