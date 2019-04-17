@@ -5,5 +5,6 @@
   <h3><%= @record.id %></h3>
   <p>IP: <%= @record.source_ip %></p>
   <p>User: <%= @record.user.email %></p>
-  <p>Created at: <%= @record.created_at %></p>
+  <p>Usage: <%= @record.get_internet_usage %> bytes</p>
+  <p>Created at: <%= @record.created_at.in_time_zone("Taipei") %></p>
 </div>

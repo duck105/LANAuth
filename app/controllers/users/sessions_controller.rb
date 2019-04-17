@@ -22,9 +22,9 @@ class Users::SessionsController < Devise::SessionsController
   def destroy
     ip = request.ip
     record=current_user.records.find_by_source_ip(ip)
-    if record&.present?
-      record.destroy
-    end
+    #if record&.present?
+    #  record.destroy
+    #end
     super
   end
 

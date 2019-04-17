@@ -1,5 +1,5 @@
 <div class="col-md-12">
-  <h2>使用者紀錄</h2>
+  <h2>Records</h2>
   <table class="table table-hover">
     <div class="group">
       <!-- <%= link_to("New Record", new_record_path, class: "btn btn-primary  pull-right") %> -->
@@ -9,6 +9,7 @@
         <td>#</td>
         <td>ID</td>
         <td>Source IP</td>
+        <td>Usage</td>
         <td>User</td>
       </tr>
     </thead>
@@ -18,6 +19,7 @@
           <td>#</td>
           <td><%= record.id %></td>
           <td><%= record.source_ip %></td>
+          <td><%= record.get_internet_usage %></td>
           <td><%= record.user.email %></td>
           <td>
             <%= link_to "詳細", record_path(record), class: "btn btn-default"%>
